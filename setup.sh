@@ -32,6 +32,9 @@ nix-env -iA nixos.neofetch
 
 
 source ~/.bashrc
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
+gnome-extensions enable material-shell@papyelgringo #enable material shell
 
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
@@ -40,14 +43,8 @@ echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
-
 source ~/.bashrc
-# set dark theme
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-# set icon theme
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-# enable material shell
-gnome-extensions enable material-shell@papyelgringo
+
 
 
 echo $password | sudo -S sudo nixos-rebuild switch
