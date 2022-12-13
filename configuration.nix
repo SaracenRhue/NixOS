@@ -102,9 +102,9 @@
   papirus-icon-theme
   ]) ++ (with pkgs.gnome; [
     gnome-tweaks
-  ])++ (with gnomeExtensions; [
+  ])++ (with pkgs.gnomeExtensions; [
     material-shell
-  ]) ++ (with python310Packages; [
+  ]) ++ (with pkgs.python310Packages; [
   pyyaml
   pick
   beautifulsoup4
