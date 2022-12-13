@@ -72,6 +72,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+  grub
   git
   curl
   zsh
@@ -92,7 +93,6 @@
   zoom
   nodejs
   go
-  nodePackages.npm
   jre8
   libvirt
   tree
@@ -113,6 +113,7 @@
   pyautogui
   pygame
   ]) ++ (with pkgs.nodePackages; [
+    npm
     typescript
     sass
   ]);
