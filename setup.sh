@@ -40,7 +40,6 @@ echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
-echo "zsh" >> ~/.bashrc
 
 source ~/.bashrc
 # set dark theme
@@ -50,7 +49,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
 
-
+echo "zsh" >> ~/.bashrc
 echo $password | sudo -S sudo nixos-rebuild switch
 
 rm -fr ./nixos
