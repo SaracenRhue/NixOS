@@ -24,7 +24,7 @@ nix-env -u
 
 nix-env -iA nixos.gnome.gnome-tweaks
 nix-env -iA nixos.gnomeExtensions.material-shell
-nix-env -iA nixpkgs.papirus-icon-theme
+nix-env -iA nixos.papirus-icon-theme
 nix-env -iA nixos.zsh
 nix-env -iA nixos.zsh-autosuggestions
 nix-env -iA nixos.zsh-syntax-highlighting
