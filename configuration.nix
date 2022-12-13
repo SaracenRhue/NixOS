@@ -102,6 +102,7 @@
   papirus-icon-theme
   ]) ++ (with pkgs.gnome; [
     gnome-tweaks
+    gnome-boxes
   ])++ (with pkgs.gnomeExtensions; [
     material-shell
   ]) ++ (with pkgs.python310Packages; [
