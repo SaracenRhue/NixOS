@@ -8,9 +8,9 @@ read password
 
 git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
 cd Top-5-Bootloader-Themes
-echo $password | sudo ./install.sh
+echo $password | sudo -S sudo ./install.sh
 cd ../
-echo $password | sudo rm -fr Top-5-Bootloader-Themes
+echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
 
 echo $password | sudo -S sudo rm /etc/nixos/configuration.nix
