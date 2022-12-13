@@ -23,6 +23,7 @@ nix-channel --update
 nix-env -u
 
 
+nix-env -iA nixos.gnome.gnome-shell
 nix-env -iA nixos.gnome.gnome-tweaks
 nix-env -iA nixos.gnomeExtensions.material-shell
 nix-env -iA nixos.papirus-icon-theme
