@@ -7,11 +7,11 @@ read password
 
 
 
-git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
-cd Top-5-Bootloader-Themes
-echo $password | sudo -S sudo ./install.sh
-cd ../
-echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
+# git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
+# cd Top-5-Bootloader-Themes
+# echo $password | sudo -S sudo ./install.sh
+# cd ../
+# echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
 
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
@@ -29,32 +29,8 @@ nix-env -iA nixos.zsh-autosuggestions
 nix-env -iA nixos.zsh-syntax-highlighting
 nix-env -iA nixos.neofetch
 
-nix-env -e pkgs.gnome-photos
-nix-env -e pkgs.gnome-tour
-nix-env -e pkgs.gnome.cheese # webcam tool
-nix-env -e pkgs.gnome.gnome-calculator
-nix-env -e pkgs.gnome.gnome-calendar
-nix-env -e pkgs.gnome.gnome-maps
-nix-env -e pkgs.gnome.gnome-music
-nix-env -e pkgs.gnome.gnome-terminal
-nix-env -e pkgs.gnome.gnome-weather
-nix-env -e pkgs.gnome.gedit # text editor
-nix-env -e pkgs.gnome.epiphany # web browser
-nix-env -e pkgs.gnome.geary # email reader
-nix-env -e pkgs.gnome.evince # document viewer
-nix-env -e pkgs.gnome.gnome-characters
-nix-env -e pkgs.gnome.totem # video player
-nix-env -e pkgs.gnome.tali # poker game
-nix-env -e pkgs.gnome.iagno # go game
-nix-env -e pkgs.gnome.hitori # sudoku game
-nix-env -e pkgs.gnome.atomix # puzzle game
-nix-env -e pkgs.gnome.yelp
 
 source ~/.bashrc
-# enable material shell
-gnome-extensions enable material-shell@papyelgringo
-
-echo $password | sudo -S sudo nixos-rebuild switch
 
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
@@ -72,6 +48,9 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
+
+
+echo $password | sudo -S sudo nixos-rebuild switch
 
 rm -fr ./nixos
 echo "  __  __      ___ "
