@@ -112,7 +112,7 @@
   selenium
   pyautogui
   pygame
-  ]) ++ (with nodePackages; [
+  ]) ++ (with pkgs.nodePackages; [
     typescript
     sass
   ]);
