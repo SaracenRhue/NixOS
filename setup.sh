@@ -3,7 +3,7 @@
 ## bash ./nixos/setup.sh
 
 sudo rm /etc/nixos/configuration.nix
-cp ./nixos/configuration.nix /etc/nixos/
+sudo cp ./nixos/configuration.nix /etc/nixos/
 
 export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
@@ -17,6 +17,9 @@ curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
 echo "zsh" >> ~/.bashrc
 
+
+
+rm -fr ./nixos
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
