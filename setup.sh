@@ -13,7 +13,7 @@ read password
 # cd ../
 # echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
-
+touch ~/.bashrc
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
 echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 
