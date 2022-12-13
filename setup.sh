@@ -49,9 +49,9 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
 
-echo "zsh" >> ~/.bashrc
-echo $password | sudo -S sudo nixos-rebuild switch
 
+echo $password | sudo -S sudo nixos-rebuild switch
+echo "zsh" >> ~/.bashrc
 rm -fr ./nixos
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
