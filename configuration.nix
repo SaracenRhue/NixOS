@@ -79,8 +79,8 @@
   zsh-autosuggestions
   zsh-syntax-highlighting
   neofetch
-  #brave # no arm
-  #discord # no arm
+  brave # no arm
+  discord # no arm
   python311
   vscode
   github-desktop
