@@ -23,7 +23,8 @@ echo "zsh" >> ~/.bashrc
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 # set icon theme
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-
+# enable material shell
+gnome-extensions enable material-shell
 
 rm -fr ./nixos
 echo "  __  __      ___ "
