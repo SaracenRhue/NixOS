@@ -29,6 +29,25 @@ nix-env -iA nixos.zsh-autosuggestions
 nix-env -iA nixos.zsh-syntax-highlighting
 nix-env -iA nixos.neofetch
 
+nix-env -e cheese # webcam tool
+nix-env -e gnome-calculator
+nix-env -e gnome-calendar
+nix-env -e gnome-maps
+nix-env -e gnome-music
+nix-env -e gnome-terminal
+nix-env -e gnome-weather
+nix-env -e gedit # text editor
+nix-env -e epiphany # web browser
+nix-env -e geary # email reader
+nix-env -e evince # document viewer
+nix-env -e gnome-characters
+nix-env -e totem # video player
+nix-env -e tali # poker game
+nix-env -e iagno # go game
+nix-env -e hitori # sudoku game
+nix-env -e atomix # puzzle game
+nix-env -e yelp
+
 source >> ~/.bashrc
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
