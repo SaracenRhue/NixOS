@@ -19,6 +19,11 @@ echo "neofetch" >> ~/.zshrc
 echo "zsh" >> ~/.bashrc
 
 
+# set dark theme
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+# set icon theme
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+
 
 rm -fr ./nixos
 echo "  __  __      ___ "
