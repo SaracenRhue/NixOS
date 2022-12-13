@@ -13,7 +13,7 @@ cd ../
 echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
 
-echo $password | sudo -S sudo rm /etc/nixos/configuration.nix
+echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
 echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 
 export NIXPKGS_ALLOW_UNFREE=1
