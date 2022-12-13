@@ -104,7 +104,7 @@
     gnome-shell
     gnome-tweaks
     gnome-boxes
-  ])++ (with pkgs.gnomeExtensions; [
+  ]) ++ (with pkgs.gnomeExtensions; [
     material-shell
   ]) ++ (with pkgs.python310Packages; [
   pyyaml
