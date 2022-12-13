@@ -22,27 +22,26 @@ export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
 nix-env -u
 
-nix-env -e nixos.pkgs.gnomecheese # webcam tool
-nix-env -e nixos.pkgs.gnome-calculator
-nix-env -e nixos.pkgs.gnome-calendar
-nix-env -e nixos.pkgs.gnome-maps
-nix-env -e nixos.pkgs.gnome-music
-nix-env -e nixos.pkgs.gnome-terminal
-nix-env -e nixos.pkgs.gnome-weather
-nix-env -e nixos.pkgs.gedit # text editor
-nix-env -e nixos.pkgs.epiphany # web browser
-nix-env -e nixos.pkgs.geary # email reader
-nix-env -e nixos.pkgs.evince # document viewer
-nix-env -e nixos.pkgs.gnome-characters
-nix-env -e nixos.pkgs.totem # video player
-nix-env -e nixos.pkgs.tali # poker game
-nix-env -e nixos.pkgs.iagno # go game
-nix-env -e nixos.pkgs.hitori # sudoku game
-nix-env -e nixos.pkgs.atomix # puzzle game
-nix-env -e nixos.pkgs.yelp
-nix-env -e nixos.pkgs.gnome-photos
-nix-env -e nixos.pkgs.gnome-tour
-
+nix-env -e nixos.gnomecheese # webcam tool
+nix-env -e nixos.gnome-calculator
+nix-env -e nixos.gnome-calendar
+nix-env -e nixos.gnome-maps
+nix-env -e nixos.gnome-music
+nix-env -e nixos.gnome-terminal
+nix-env -e nixos.gnome-weather
+nix-env -e nixos.gedit # text editor
+nix-env -e nixos.epiphany # web browser
+nix-env -e nixos.geary # email reader
+nix-env -e nixos.evince # document viewer
+nix-env -e nixos.gnome-characters
+nix-env -e nixos.totem # video player
+nix-env -e nixos.tali # poker game
+nix-env -e nixos.iagno # go game
+nix-env -e nixos.hitori # sudoku game
+nix-env -e nixos.atomix # puzzle game
+nix-env -e nixos.yelp
+nix-env -e nixos.gnome.gnome-photos
+nix-env -e nixos.gnome.gnome-tour
 
 nix-env -iA nixos.gnome.gnome-tweaks
 nix-env -iA nixos.gnomeExtensions.material-shell
