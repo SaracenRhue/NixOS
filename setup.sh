@@ -6,8 +6,8 @@ echo "Enter sudo password"
 read password
 
 
-echo $password | sudo rm /etc/nixos/configuration.nix
-echo $password | sudo cp ./nixos/configuration.nix /etc/nixos/
+echo $password | sudo -S sudo rm /etc/nixos/configuration.nix
+echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 
 export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
@@ -18,11 +18,11 @@ nix-env -iA nixos.gnomeExtensions.material-shell
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
 
-echo $password | sudo nixos-rebuild switch
+echo $password | sudo -S sudo nixos-rebuild switch
 
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
-echo $password | sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
