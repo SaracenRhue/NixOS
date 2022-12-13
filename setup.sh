@@ -48,7 +48,7 @@ nix-env -e hitori # sudoku game
 nix-env -e atomix # puzzle game
 nix-env -e yelp
 
-source >> ~/.bashrc
+source ~/.bashrc
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
 
@@ -63,7 +63,7 @@ echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 echo "zsh" >> ~/.bashrc
 
-source >> ~/.bashrc
+source ~/.bashrc
 # set dark theme
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 # set icon theme
