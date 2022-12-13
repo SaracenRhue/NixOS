@@ -71,7 +71,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
   git
   curl
   zsh
@@ -91,6 +91,7 @@
   resilio-sync
   zoom
   nodejs
+  go
   nodePackages.npm
   jre8
   libvirt
@@ -99,16 +100,22 @@
   sshpass
   cmatrix
   papirus-icon-theme
-  python310Packages.pyyaml
-  python310Packages.pick
-  python310Packages.beautifulsoup4
-  python310Packages.icecream
-  python310Packages.selenium
-  python310Packages.pyautogui
-  python310Packages.pygame
-  nodePackages.typescript
-  gnomeExtensions.material-shell
-  ];
+  ]) ++ (with pkgs.gnome; [
+    gnome-tweaks
+  ])++ (with gnomeExtensions; [
+    material-shell
+  ]) ++ (with python310Packages; [
+  pyyaml
+  pick
+  beautifulsoup4
+  icecream
+  selenium
+  pyautogui
+  pygame
+  ]) ++ (with nodePackages; [
+    typescript
+    sass
+  ]);
 
   environment.gnome.excludePackages = (with pkgs; [
   gnome-photos
