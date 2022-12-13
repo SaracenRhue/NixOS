@@ -9,6 +9,7 @@ export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
 nix-env -u
 
+nix-env -iA nixos.gnome.gnome-tweaks
 nix-env -iA nixos.gnomeExtensions.material-shell
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
