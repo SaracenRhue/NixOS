@@ -28,14 +28,14 @@ nix-env -iA nixos.zsh
 nix-env -iA nixos.zsh-autosuggestions
 nix-env -iA nixos.zsh-syntax-highlighting
 nix-env -iA nixos.neofetch
+
+source >> ~/.bashrc
 # enable material shell
 gnome-extensions enable material-shell@papyelgringo
 
 echo $password | sudo -S sudo nixos-rebuild switch
 
 
-
-source >> ~/.bashrc
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
