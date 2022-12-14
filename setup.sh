@@ -17,20 +17,19 @@ touch ~/.bashrc
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
 echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 
-
 export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
 nix-env -u
+echo $password | sudo -S sudo nixos-rebuild switch
 
-
-nix-env -iA nixos.gnome.gnome-shell
-nix-env -iA nixos.gnome.gnome-tweaks
-nix-env -iA nixos.gnomeExtensions.material-shell
-nix-env -iA nixos.papirus-icon-theme
-nix-env -iA nixos.zsh
-nix-env -iA nixos.zsh-autosuggestions
-nix-env -iA nixos.zsh-syntax-highlighting
-nix-env -iA nixos.neofetch
+# nix-env -iA nixos.gnome.gnome-shell
+# nix-env -iA nixos.gnome.gnome-tweaks
+# nix-env -iA nixos.gnomeExtensions.material-shell
+# nix-env -iA nixos.papirus-icon-theme
+# nix-env -iA nixos.zsh
+# nix-env -iA nixos.zsh-autosuggestions
+# nix-env -iA nixos.zsh-syntax-highlighting
+# nix-env -iA nixos.neofetch
 
 
 source ~/.bashrc
@@ -49,7 +48,7 @@ source ~/.bashrc
 
 
 
-echo $password | sudo -S sudo nixos-rebuild switch
+
 echo "zsh" >> ~/.bashrc
 rm -fr ./nixos
 echo "  __  __      ___ "
