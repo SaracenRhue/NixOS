@@ -14,6 +14,8 @@ read password
 # echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
 touch ~/.bashrc
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
+
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
 echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 
@@ -33,7 +35,6 @@ echo $password | sudo -S sudo nixos-rebuild switch
 
 
 source ~/.bashrc
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
 gnome-extensions enable material-shell@papyelgringo #enable material shell
 
