@@ -102,7 +102,7 @@
   zsh-autosuggestions
   zsh-syntax-highlighting
   neofetch
-  #grub # no arm
+  grub2 # no arm
   #brave # no arm
   #discord # no arm
   python311
