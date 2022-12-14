@@ -14,7 +14,7 @@ echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 
 git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
 cd Top-5-Bootloader-Themes
-echo $password | sudo -S sudo bash ./install.sh
+sudo -S sudo bash ./install.sh
 cd ../
 echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
