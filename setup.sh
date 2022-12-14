@@ -20,8 +20,7 @@ echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
 nix-env -u
-echo $password | sudo nix-collect-garbage -d
-echo $password | sudo nixos-rebuild switch
+echo $password | sudo -S sudo nixos-rebuild switch
 
 source ~/.bashrc
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
@@ -33,6 +32,9 @@ echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
+
+echo $password | sudo nix-collect-garbage -d
+echo $password | sudo nixos-rebuild switch
 
 echo "zsh" >> ~/.bashrc
 rm -fr ./nixos
