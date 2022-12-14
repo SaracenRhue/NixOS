@@ -98,11 +98,11 @@
   environment.systemPackages = (with pkgs; [
   git
   curl
+  wget
   zsh
   zsh-autosuggestions
   zsh-syntax-highlighting
   neofetch
-  grub2 # no arm
   #brave # no arm
   #discord # no arm
   python311

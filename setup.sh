@@ -33,11 +33,11 @@ echo "zsh" >> ~/.bashrc
 
 rm -fr ./nixos
 
-git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
-cd Top-5-Bootloader-Themes
-sudo -S sudo bash ./install.sh
-cd ../
-echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
+# git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
+# cd Top-5-Bootloader-Themes
+# sudo -S sudo bash ./install.sh
+# cd ../
+# echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
 
 echo $password | sudo -S sudo nix-collect-garbage -d
