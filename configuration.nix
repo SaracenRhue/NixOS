@@ -86,7 +86,6 @@
   users.users.saracen = {
     isNormalUser = true;
     description = "saracen";
-    password = "1234";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };

@@ -5,8 +5,6 @@
 echo "Enter sudo password"
 read password
 
-
-
 # git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
 # cd Top-5-Bootloader-Themes
 # echo $password | sudo -S sudo ./install.sh
@@ -24,20 +22,9 @@ nix-channel --update
 nix-env -u
 echo $password | sudo -S sudo nixos-rebuild switch
 
-# nix-env -iA nixos.gnome.gnome-shell
-# nix-env -iA nixos.gnome.gnome-tweaks
-# nix-env -iA nixos.gnomeExtensions.material-shell
-# nix-env -iA nixos.papirus-icon-theme
-# nix-env -iA nixos.zsh
-# nix-env -iA nixos.zsh-autosuggestions
-# nix-env -iA nixos.zsh-syntax-highlighting
-# nix-env -iA nixos.neofetch
-
-
 source ~/.bashrc
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
 gnome-extensions enable material-shell@papyelgringo #enable material shell
-
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
@@ -46,12 +33,18 @@ curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 
+echo $password | sudo nix-collect-garbage -d
+echo $password | sudo nixos-rebuild switch
 
 echo "zsh" >> ~/.bashrc
 rm -fr ./nixos
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
-sleep 5
-clear
-source ~/.bashrc
+
+echo "Rebooting in 5 seconds" && sleep 1
+echo "Rebooting in 4 seconds" && sleep 1
+echo "Rebooting in 3 seconds" && sleep 1
+echo "Rebooting in 2 seconds" && sleep 1
+echo "Rebooting in 1 second" && sleep 1
+echo $password | sudo reboot
