@@ -99,6 +99,7 @@
   git
   curl
   wget
+  htop
   zsh
   zsh-autosuggestions
   zsh-syntax-highlighting
