@@ -50,4 +50,4 @@ echo "Rebooting in 4 seconds" && sleep 1
 echo "Rebooting in 3 seconds" && sleep 1
 echo "Rebooting in 2 seconds" && sleep 1
 echo "Rebooting in 1 second" && sleep 1
-echo $password | sudo reboot
+echo $password | sudo -S sudo reboot
