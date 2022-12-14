@@ -12,12 +12,6 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark t
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
 echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
 
-git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
-cd Top-5-Bootloader-Themes
-sudo -S sudo bash ./install.sh
-cd ../
-echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
-
 
 export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
@@ -38,6 +32,14 @@ echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 echo "zsh" >> ~/.bashrc
 
 rm -fr ./nixos
+
+git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
+cd Top-5-Bootloader-Themes
+sudo -S sudo bash ./install.sh
+cd ../
+echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
+
+
 echo $password | sudo -S sudo nix-collect-garbage -d
 echo $password | sudo -S sudo nixos-rebuild switch
 echo "  __  __      ___ "
