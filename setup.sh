@@ -45,9 +45,6 @@ echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
-source ~/.bashrc
-
-
 
 
 echo "zsh" >> ~/.bashrc
@@ -55,7 +52,8 @@ rm -fr ./nixos
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
-# sleep 2
+sleep 3
+source ~/.bashrc
 # #reboot
 # echo "Rebooting in 3 Seconds ..." && sleep 1
 # echo "Rebooting in 2 Seconds ..." && sleep 1
