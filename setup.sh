@@ -7,7 +7,7 @@ read password
 
 # git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
 # cd Top-5-Bootloader-Themes
-# echo $password | sudo -S sudo ./install.sh
+# echo $password | sudo -S sudo bash ./install.sh
 # cd ../
 # echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
 
@@ -26,15 +26,14 @@ echo $password | sudo nixos-rebuild switch
 source ~/.bashrc
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
 gnome-extensions enable material-shell@papyelgringo #enable material shell
-if [ -n "$ZSH_VERSION" ]; then
-    echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
-    echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-    echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
-    curl -L http://install.ohmyz.sh | sh
-    echo "neofetch" >> ~/.zshrc
-    echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
-    echo "zsh" >> ~/.bashrc
-fi
+
+echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
+echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
+curl -L http://install.ohmyz.sh | sh
+echo "neofetch" >> ~/.zshrc
+echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
+echo "zsh" >> ~/.bashrc
 
 rm -fr ./nixos
 echo $password | sudo -S sudo nix-collect-garbage -d

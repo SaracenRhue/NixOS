@@ -123,6 +123,8 @@
   timeshift
   sshpass
   cmatrix
+  geckodriver
+  terminator
   papirus-icon-theme
   ]) ++ (with pkgs.gnome; [
     #gnome-shell
