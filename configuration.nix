@@ -150,6 +150,9 @@
   gnome-tour
   ]) ++ (with pkgs.gnome; [
   cheese # webcam tool
+  gnome-clocks
+  gnome-font-viewer
+  gnome-contacts
   gnome-calculator
   gnome-calendar
   gnome-maps
