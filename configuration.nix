@@ -125,7 +125,7 @@
   cmatrix
   papirus-icon-theme
   ]) ++ (with pkgs.gnome; [
-   #gnome-shell
+    gnome-shell
     gnome-shell-extensions
     gnome-tweaks
     gnome-boxes
