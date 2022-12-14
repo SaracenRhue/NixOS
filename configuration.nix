@@ -124,13 +124,13 @@
   sshpass
   cmatrix
   papirus-icon-theme
-  gnomeExtensions.material-shell
   ]) ++ (with pkgs.gnome; [
    #gnome-shell
+    gnome-shell-extensions
     gnome-tweaks
     gnome-boxes
   ]) ++ (with pkgs.gnomeExtensions; [
-    #material-shell
+    material-shell
   ]) ++ (with pkgs.python310Packages; [
   pyyaml
   pick

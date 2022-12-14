@@ -53,4 +53,5 @@ echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
 sleep 5
+clear
 source ~/.bashrc
