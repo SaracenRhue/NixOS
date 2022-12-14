@@ -54,9 +54,9 @@ rm -fr ./nixos
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
-sleep 2
-#reboot
-echo "Rebooting in 3 Seconds ..." && sleep 1
-echo "Rebooting in 2 Seconds ..." && sleep 1
-echo "Rebooting in 1 Second ..." && sleep 1
-echo $password | sudo -S sudo reboot
+# sleep 2
+# #reboot
+# echo "Rebooting in 3 Seconds ..." && sleep 1
+# echo "Rebooting in 2 Seconds ..." && sleep 1
+# echo "Rebooting in 1 Second ..." && sleep 1
+# echo $password | sudo -S sudo reboot
