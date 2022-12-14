@@ -21,7 +21,6 @@ export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
 nix-env -u
 
-echo $password | sudo nix-collect-garbage -d
 echo $password | sudo nixos-rebuild switch
 
 source ~/.bashrc
@@ -37,6 +36,10 @@ echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 
 echo "zsh" >> ~/.bashrc
 rm -fr ./nixos
+
+echo $password | sudo nix-collect-garbage -d
+echo $password | sudo nixos-rebuild switch
+
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
