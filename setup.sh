@@ -40,10 +40,15 @@ unzip -d ./ ./nixos/mozilla.zip
 # aliases
 echo "Adding aliases ..."
 alias 'nix i'='nix-env -iA nixos'
-alias 'nix u'='nix-env -u'
+alias 'nix u'='nix-channel --update && nix-env -u'
 alias 'nix q'='nix-env -q'
 alias 'nix s'='nix search'
 alias 'nix rebuild'='nixos-rebuild switch'
+alias 'nix gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'
+alias 'nano config'='sudo nano /etc/nixos/configration.nix'
+alias 'nano zshrc'='nano ~/.zshrc'
+alias 'nano bashrc'='nano ~/.bashrc'
+
 
 rm -fr ./nixos
 
