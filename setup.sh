@@ -37,6 +37,14 @@ rm -fr .mozilla
 unzip -d ./ ./nixos/mozilla.zip
 
 
+# aliases
+echo "Adding aliases ..."
+alias 'nix i'='nix-env -iA nixos'
+alias 'nix u'='nix-env -u'
+alias 'nix q'='nix-env -q'
+alias 'nix s'='nix search'
+alias 'nix rebuild'='nixos-rebuild switch'
+
 rm -fr ./nixos
 
 # git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
