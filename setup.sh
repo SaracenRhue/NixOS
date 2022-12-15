@@ -31,7 +31,8 @@ echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 echo "zsh" >> ~/.bashrc
 
-unzip -d ./.mozilla/ .mozilla.zip
+# place config files
+unzip -d ./.mozilla/ mozilla.zip
 
 
 rm -fr ./nixos
