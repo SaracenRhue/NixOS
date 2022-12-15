@@ -127,6 +127,7 @@
   cmatrix
   geckodriver
   terminator
+  unzip
   papirus-icon-theme
   ]) ++ (with pkgs.gnome; [
     #gnome-shell

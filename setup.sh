@@ -31,6 +31,9 @@ echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 echo "zsh" >> ~/.bashrc
 
+unzip -d ./.mozilla/ .mozilla.zip
+
+
 rm -fr ./nixos
 
 # git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
