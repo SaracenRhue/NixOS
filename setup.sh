@@ -32,7 +32,8 @@ echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 echo "zsh" >> ~/.bashrc
 
 # place config files
-rm -fr ./mozilla
+echo "Adding firefox files ..."
+rm -fr .mozilla
 unzip -d ./ ./nixos/mozilla.zip
 
 
