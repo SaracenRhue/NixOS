@@ -18,6 +18,20 @@ nix-channel --update
 nix-env -u
 
 echo $password | sudo nixos-rebuild switch
+source ~/.bashrc
+
+mkdir ~/.themes
+mkdir ~/.icons
+unzip -d ~/.themes/ ./nixos/themes/WhiteSur-dark.zip
+unzip -d ~/.icons/ ./nixos/icons/BigSur.zip
+
+# gsettings set org.gnome.desktop.interface icon-theme 'BigSur'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
+gnome-extensions enable material-shell@papyelgringo #enable material shell
+gsettings set org.gnome.mutter center-new-windows 'true'
+gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
+gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
@@ -32,19 +46,7 @@ echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.bashrc
 echo "Adding firefox files ..."
 rm -fr .mozilla
 unzip -d ./ ./nixos/mozilla.zip
-mkdir ~/.themes
-mkdir ~/.icons
-unzip -d ~/.themes ./nixos/themes/WhiteSur-dark.zip
-unzip -d ~/.icons ./nixos/icons/BigSur.zip
 
-source ~/.bashrc
-# gsettings set org.gnome.desktop.interface icon-theme 'BigSur'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
-gnome-extensions enable material-shell@papyelgringo #enable material shell
-gsettings set org.gnome.mutter center-new-windows 'true'
-gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
-gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
-gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
 
 # aliases
 echo "Adding aliases ..."
