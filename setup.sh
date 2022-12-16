@@ -49,6 +49,7 @@ unzip -d ./ ./nixos/configs/mozilla.zip
 
 
 # aliases
+# zsh
 echo "Adding aliases ..."
 echo "alias 'nix-i'='nix-env -iA nixos'" >> ~/.zshrc
 echo "alias 'nix-u'='nix-channel --update && nix-env -u'" >> ~/.zshrc
@@ -59,7 +60,7 @@ echo "alias 'gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild swit
 echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.zshrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.zshrc
-
+# bash
 echo "alias 'nix i'='nix-env -iA nixos'" >> ~/.bashrc
 echo "alias 'nix u'='nix-channel --update && nix-env -u'" >> ~/.bashrc
 echo "alias 'nix q'='nix-env -q'" >> ~/.bashrc
