@@ -45,7 +45,7 @@ echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.bashrc
 # place config files
 echo "Adding firefox files ..."
 rm -fr .mozilla
-unzip -d ./ ./nixos/mozilla.zip
+unzip -d ./ ./nixos/configs/mozilla.zip
 
 
 # aliases
