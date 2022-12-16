@@ -28,9 +28,9 @@ echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k
 echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
+echo "neofetch" >> ~/.bashrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
-chsh -s $(which zsh)
-echo "zsh" >> ~/.bashrc
+echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.bashrc
 
 # place config files
 echo "Adding firefox files ..."
@@ -40,16 +40,25 @@ unzip -d ./ ./nixos/mozilla.zip
 
 # aliases
 echo "Adding aliases ..."
-alias 'nix i'='nix-env -iA nixos'
-alias 'nix u'='nix-channel --update && nix-env -u'
-alias 'nix q'='nix-env -q'
-alias 'nix s'='nix search'
-alias 'nix rebuild'='nixos-rebuild switch'
-alias 'nix gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'
-alias 'nano config'='sudo nano /etc/nixos/configration.nix'
-alias 'nano zshrc'='nano ~/.zshrc'
-alias 'nano bashrc'='nano ~/.bashrc'
+echo "alias 'nix i'='nix-env -iA nixos'" >> ~/.zshrc
+echo "alias 'nix u'='nix-channel --update && nix-env -u'" >> ~/.zshrc
+echo "alias 'nix q'='nix-env -q'" >> ~/.zshrc
+echo "alias 'nix s'='nix search'" >> ~/.zshrc
+echo "alias 'nix rebuild'='nixos-rebuild switch'" >> ~/.zshrc
+echo "alias 'nix gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'" >> ~/.zshrc
+echo "alias 'nano config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
+echo "alias 'nano zshrc'='nano ~/.zshrc'" >> ~/.zshrc
+echo "alias 'nano bashrc'='nano ~/.bashrc'" >> ~/.zshrc
 
+echo "alias 'nix i'='nix-env -iA nixos'" >> ~/.bashrc
+echo "alias 'nix u'='nix-channel --update && nix-env -u'" >> ~/.bashrc
+echo "alias 'nix q'='nix-env -q'" >> ~/.bashrc
+echo "alias 'nix s'='nix search'" >> ~/.bashrc
+echo "alias 'nix rebuild'='nixos-rebuild switch'" >> ~/.bashrc
+echo "alias 'nix gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'" >> ~/.bashrc
+echo "alias 'nano config'='sudo nano /etc/nixos/configration.nix'" >> ~/.bashrc
+echo "alias 'nano zshrc'='nano ~/.zshrc'" >> ~/.bashrc
+echo "alias 'nano bashrc'='nano ~/.bashrc'" >> ~/.bashrc
 
 rm -fr ./nixos
 

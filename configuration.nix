@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
+  boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -129,6 +129,9 @@
   terminator
   unzip
   papirus-icon-theme
+  #deluge
+  # wireguard
+  # wireguard-tools
   ]) ++ (with pkgs.gnome; [
     #gnome-shell
     gnome-shell-extensions
