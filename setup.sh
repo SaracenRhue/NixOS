@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## bash ./nixos/setup.sh sudopassword
+## bash ./nixos/setup.sh password
 
 password=$1 
 
