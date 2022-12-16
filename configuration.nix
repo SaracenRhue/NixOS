@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -106,6 +106,9 @@
   neofetch
   #brave # no arm
   #discord # no arm
+  #deluge
+  #wireguard
+  #wireguard-tools
   python311
   vscode
   github-desktop
@@ -130,9 +133,6 @@
   unzip
   zoom-us
   papirus-icon-theme
-  #deluge
-  # wireguard
-  # wireguard-tools
   ]) ++ (with pkgs.gnome; [
     #gnome-shell
     gnome-shell-extensions
@@ -180,6 +180,7 @@
   atomix # puzzle game
   yelp
 ]);
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
