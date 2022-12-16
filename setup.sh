@@ -23,6 +23,7 @@ source ~/.bashrc
 mkdir ~/.themes
 mkdir ~/.icons
 unzip -d ~/.themes/ ./nixos/themes/WhiteSur-dark.zip
+unzip -d ~/.themes/ ./nixos/thenes/capitaine-cursors.zip
 unzip -d ~/.icons/ ./nixos/icons/BigSur.zip
 
 # gsettings set org.gnome.desktop.interface icon-theme 'BigSur'

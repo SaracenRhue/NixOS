@@ -116,10 +116,12 @@
   firefox
   vlc
   resilio-sync
-  zoom
+  zoom-us
   nodejs
   go
+  gcc
   jre8
+  kotlin
   libvirt
   tree
   timeshift
