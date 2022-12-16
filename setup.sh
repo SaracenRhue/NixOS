@@ -2,7 +2,7 @@
 
 ## bash ./nixos/setup.sh sudopassword
 
-password = $1 
+password=$1 
 
 touch ~/.bashrc
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
