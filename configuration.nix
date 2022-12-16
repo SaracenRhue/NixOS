@@ -121,7 +121,6 @@
   go
   gcc
   jre8
-  kotlin
   libvirt
   tree
   timeshift

@@ -1,10 +1,8 @@
 #!/bin/bash
 
-## bash ./nixos/setup.sh
+## bash ./nixos/setup.sh sudopassword
 
-echo "Enter sudo password"
-read password
-
+password = $1 
 
 touch ~/.bashrc
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
