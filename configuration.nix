@@ -106,6 +106,7 @@
   neofetch
   #brave # no arm
   #discord # no arm
+  #zoom-us # no arm
   python311
   vscode
   github-desktop
@@ -116,7 +117,6 @@
   firefox
   vlc
   resilio-sync
-  zoom-us
   nodejs
   go
   gcc
