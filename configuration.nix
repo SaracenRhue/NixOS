@@ -106,9 +106,6 @@
   neofetch
   #brave # no arm
   #discord # no arm
-  #deluge
-  #wireguard
-  #wireguard-tools
   python311
   vscode
   github-desktop
@@ -131,7 +128,6 @@
   geckodriver
   terminator
   unzip
-  zoom-us
   papirus-icon-theme
   ]) ++ (with pkgs.gnome; [
     #gnome-shell
@@ -180,7 +176,6 @@
   atomix # puzzle game
   yelp
 ]);
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
