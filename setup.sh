@@ -29,6 +29,7 @@ echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
+chsh -s $(which zsh)
 echo "zsh" >> ~/.bashrc
 
 # place config files
