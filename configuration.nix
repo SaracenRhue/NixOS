@@ -128,6 +128,7 @@
   geckodriver
   terminator
   unzip
+  zoom-us
   papirus-icon-theme
   #deluge
   # wireguard

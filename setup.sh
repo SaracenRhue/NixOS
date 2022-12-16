@@ -19,9 +19,19 @@ nix-env -u
 
 echo $password | sudo nixos-rebuild switch
 
+mkdir ~/.themes
+mkdir ~/.icons
+unzip -d ~/.themes ./nixos/themes/WhiteSur-dark.zip
+unzip -d ~/.icons ./nixos/icons/BigSur.zip
+
 source ~/.bashrc
+# gsettings set org.gnome.desktop.interface icon-theme 'BigSur'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
 gnome-extensions enable material-shell@papyelgringo #enable material shell
+gsettings set org.gnome.mutter center-new-windows 'true'
+gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
+gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
@@ -40,15 +50,15 @@ unzip -d ./ ./nixos/mozilla.zip
 
 # aliases
 echo "Adding aliases ..."
-echo "alias 'nix i'='nix-env -iA nixos'" >> ~/.zshrc
-echo "alias 'nix u'='nix-channel --update && nix-env -u'" >> ~/.zshrc
-echo "alias 'nix q'='nix-env -q'" >> ~/.zshrc
-echo "alias 'nix s'='nix search'" >> ~/.zshrc
-echo "alias 'nix rebuild'='nixos-rebuild switch'" >> ~/.zshrc
-echo "alias 'nix gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'" >> ~/.zshrc
-echo "alias 'nano config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
-echo "alias 'nano zshrc'='nano ~/.zshrc'" >> ~/.zshrc
-echo "alias 'nano bashrc'='nano ~/.bashrc'" >> ~/.zshrc
+echo "alias 'nix-i'='nix-env -iA nixos'" >> ~/.zshrc
+echo "alias 'nix-u'='nix-channel --update && nix-env -u'" >> ~/.zshrc
+echo "alias 'nix-q'='nix-env -q'" >> ~/.zshrc
+echo "alias 'nix-s'='nix search'" >> ~/.zshrc
+echo "alias 'rebuild'='nixos-rebuild switch'" >> ~/.zshrc
+echo "alias 'gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'" >> ~/.zshrc
+echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
+echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.zshrc
+echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.zshrc
 
 echo "alias 'nix i'='nix-env -iA nixos'" >> ~/.bashrc
 echo "alias 'nix u'='nix-channel --update && nix-env -u'" >> ~/.bashrc
