@@ -107,6 +107,8 @@
   #brave # no arm
   #discord # no arm
   #zoom-us # no arm
+  #plexamp # no arm
+  plex-media-player
   python311
   vscode
   github-desktop

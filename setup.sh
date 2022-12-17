@@ -20,9 +20,12 @@ source ~/.bashrc
 
 mkdir ~/.themes
 mkdir ~/.icons
+mkdir ~/.backgrounds
+mv ./nixos/wallpapers/* ~/.backgrounds/
 unzip -d ~/.themes/ ./nixos/themes/WhiteSur-dark.zip
-unzip -d ~/.themes/ ./nixos/thenes/capitaine-cursors.zip
+unzip -d ~/.icons/ ./nixos/icons/capitaine-cursors.zip
 unzip -d ~/.icons/ ./nixos/icons/BigSur.zip
+unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 
 # gsettings set org.gnome.desktop.interface icon-theme 'BigSur'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
@@ -33,7 +36,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
 gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
-echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
 echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
 echo "neofetch" >> ~/.zshrc
