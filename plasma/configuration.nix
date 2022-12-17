@@ -26,7 +26,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "Europe/Vienna";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -45,9 +45,10 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable the KDE Plasma Desktop Environment.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -86,8 +87,16 @@
     isNormalUser = true;
     description = "saracen";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      firefox
+      kate
+    #  thunderbird
+    ];
   };
+
+  # Enable automatic login for the user.
+  #services.xserver.displayManager.autoLogin.enable = true;
+  #services.xserver.displayManager.autoLogin.user = "saracen";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -131,15 +140,6 @@
     terminator
     unzip
     papirus-icon-theme
-  ]) ++ (with pkgs.gnome; [
-    #gnome-shell
-    gnome-shell-extensions
-    gnome-tweaks
-    gnome-boxes
-  ]) ++ (with pkgs.gnomeExtensions; [
-    material-shell
-    user-themes
-    move-clock
   ]) ++ (with pkgs.python310Packages; [
     pyyaml
     pick
@@ -154,32 +154,7 @@
     sass
   ]);
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-clocks
-    gnome-font-viewer
-    gnome-contacts
-    gnome-calculator
-    gnome-calendar
-    gnome-maps
-    gnome-music
-    gnome-terminal
-    gnome-weather
-    gedit # text editor
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    yelp
-]);
+  environment.gnome.excludePackages = (with pkgs; []);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

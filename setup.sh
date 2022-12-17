@@ -8,7 +8,7 @@ touch ~/.bashrc
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
 
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
-echo $password | sudo -S sudo cp ./nixos/configuration.nix /etc/nixos/
+echo $password | sudo -S sudo cp ./nixos/gnome/configuration.nix /etc/nixos/
 
 
 export NIXPKGS_ALLOW_UNFREE=1
@@ -29,11 +29,11 @@ unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 
 # settings
 # gsettings set org.gnome.desktop.interface icon-theme 'BigSur'
+# gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
+# gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
 gsettings set org.gnome.mutter center-new-windows 'true'
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
-gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
-gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
 gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
 # extensions
 gnome-extensions enable material-shell@papyelgringo #enable material shell
