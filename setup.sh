@@ -30,6 +30,8 @@ unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 # gsettings set org.gnome.desktop.interface icon-theme 'BigSur'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
 gnome-extensions enable material-shell@papyelgringo #enable material shell
+gnome-extensions enable user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
+gnome-extensions enable Move_Clock@rmy.pobox.com #enable move clock
 gsettings set org.gnome.mutter center-new-windows 'true'
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
 gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'

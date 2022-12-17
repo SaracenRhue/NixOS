@@ -139,6 +139,8 @@
     gnome-boxes
   ]) ++ (with pkgs.gnomeExtensions; [
     material-shell
+    user-themes
+    move-clock
   ]) ++ (with pkgs.python310Packages; [
   pyyaml
   pick
