@@ -152,8 +152,6 @@
     npm
     typescript
     sass
-  ]) ++ (with pkgs.haskellPackages;[
-    dmenu-pkill
   ]);
 
   environment.gnome.excludePackages = (with pkgs; [
