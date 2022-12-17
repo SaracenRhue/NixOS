@@ -45,7 +45,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -96,42 +95,42 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
-  git
-  curl
-  wget
-  htop
-  zsh
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  neofetch
-  #brave # no arm
-  #discord # no arm
-  #zoom-us # no arm
-  #plexamp # no arm
-  plex-media-player
-  python311
-  vscode
-  github-desktop
-  firefox
-  gparted
-  krusader
-  nextcloud-client
-  firefox
-  vlc
-  resilio-sync
-  nodejs
-  go
-  gcc
-  jre8
-  libvirt
-  tree
-  timeshift
-  sshpass
-  cmatrix
-  geckodriver
-  terminator
-  unzip
-  papirus-icon-theme
+    git
+    curl
+    wget
+    htop
+    zsh
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    neofetch
+    #brave # no arm
+    #discord # no arm
+    #zoom-us # no arm
+    #plexamp # no arm
+    plex-media-player
+    python311
+    vscode
+    github-desktop
+    firefox
+    gparted
+    krusader
+    nextcloud-client
+    firefox
+    vlc
+    resilio-sync
+    nodejs
+    go
+    gcc
+    jre8
+    libvirt
+    tree
+    timeshift
+    sshpass
+    cmatrix
+    geckodriver
+    terminator
+    unzip
+    papirus-icon-theme
   ]) ++ (with pkgs.gnome; [
     #gnome-shell
     gnome-shell-extensions
@@ -142,44 +141,46 @@
     user-themes
     move-clock
   ]) ++ (with pkgs.python310Packages; [
-  pyyaml
-  pick
-  beautifulsoup4
-  icecream
-  selenium
-  pyautogui
-  pygame
+    pyyaml
+    pick
+    beautifulsoup4
+    icecream
+    selenium
+    pyautogui
+    pygame
   ]) ++ (with pkgs.nodePackages; [
     npm
     typescript
     sass
+  ]) ++ (with pkgs.haskellPackages;[
+    dmenu-pkill
   ]);
 
   environment.gnome.excludePackages = (with pkgs; [
-  gnome-photos
-  gnome-tour
+    gnome-photos
+    gnome-tour
   ]) ++ (with pkgs.gnome; [
-  cheese # webcam tool
-  gnome-clocks
-  gnome-font-viewer
-  gnome-contacts
-  gnome-calculator
-  gnome-calendar
-  gnome-maps
-  gnome-music
-  gnome-terminal
-  gnome-weather
-  gedit # text editor
-  epiphany # web browser
-  geary # email reader
-  evince # document viewer
-  gnome-characters
-  totem # video player
-  tali # poker game
-  iagno # go game
-  hitori # sudoku game
-  atomix # puzzle game
-  yelp
+    cheese # webcam tool
+    gnome-clocks
+    gnome-font-viewer
+    gnome-contacts
+    gnome-calculator
+    gnome-calendar
+    gnome-maps
+    gnome-music
+    gnome-terminal
+    gnome-weather
+    gedit # text editor
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+    yelp
 ]);
 
   # Some programs need SUID wrappers, can be configured further or are
