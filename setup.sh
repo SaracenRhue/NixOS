@@ -64,15 +64,15 @@ echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.zshrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.zshrc
 # bash
-echo "alias 'nix i'='nix-env -iA nixos'" >> ~/.bashrc
-echo "alias 'nix u'='nix-channel --update && nix-env -u'" >> ~/.bashrc
-echo "alias 'nix q'='nix-env -q'" >> ~/.bashrc
-echo "alias 'nix s'='nix search'" >> ~/.bashrc
-echo "alias 'nix rebuild'='nixos-rebuild switch'" >> ~/.bashrc
-echo "alias 'nix gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'" >> ~/.bashrc
-echo "alias 'nano config'='sudo nano /etc/nixos/configration.nix'" >> ~/.bashrc
-echo "alias 'nano zshrc'='nano ~/.zshrc'" >> ~/.bashrc
-echo "alias 'nano bashrc'='nano ~/.bashrc'" >> ~/.bashrc
+echo "alias 'nix-i'='nix-env -iA nixos'" >> ~/.bashrc
+echo "alias 'nix-u'='nix-channel --update && nix-env -u'" >> ~/.bashrc
+echo "alias 'nix-q'='nix-env -q'" >> ~/.bashrc
+echo "alias 'nix-s'='nix search'" >> ~/.bashrc
+echo "alias 'rebuild'='nixos-rebuild switch'" >> ~/.bashrc
+echo "alias 'gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'" >> ~/.bashrc
+echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.bashrc
+echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.bashrc
+echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.bashrc
 
 rm -fr ./nixos
 
