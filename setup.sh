@@ -27,16 +27,19 @@ unzip -d ~/.icons/ ./nixos/icons/capitaine-cursors.zip
 unzip -d ~/.icons/ ./nixos/icons/BigSur.zip
 unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 
+# settings
 # gsettings set org.gnome.desktop.interface icon-theme 'BigSur'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
-gnome-extensions enable material-shell@papyelgringo #enable material shell
-gnome-extensions enable user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
-gnome-extensions enable Move_Clock@rmy.pobox.com #enable move clock
 gsettings set org.gnome.mutter center-new-windows 'true'
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
 gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
 gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
 gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
+# extensions
+gnome-extensions enable material-shell@papyelgringo #enable material shell
+gnome-extensions enable user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
+gnome-extensions enable Move_Clock@rmy.pobox.com #enable move clock
+
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
