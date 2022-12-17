@@ -40,9 +40,10 @@ echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
 echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
 curl -L http://install.ohmyz.sh | sh
+
 echo "neofetch" >> ~/.zshrc
-echo "neofetch" >> ~/.bashrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
+echo "neofetch" >> ~/.bashrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.bashrc
 
 # place config files
