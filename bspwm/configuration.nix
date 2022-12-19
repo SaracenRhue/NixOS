@@ -7,93 +7,85 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+     /etc/nixos/hardware-configuration.nix
     ];
+  environment.variables = {
+	SUDO_EDITOR = "nvim";
+    };
+  
+  # Use the GRUB 2 boot loader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  # boot.loader.grub.efiSupport = true;
+  # boot.loader.grub.efiInstallAsRemovable = true;
+  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  # Define on which hard drive you want to install Grub.
+   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
-  networking.hostName = "nixos"; # Define your hostname.
+   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Set your time zone.
+  time.timeZone = "Europe/Vienna";
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+  networking.interfaces.enp2s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Vienna";
-
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  # };
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
   };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  # Enable the BSPWM Desktop Environment.
+
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  
+    # BSPWM
   services.xserver.windowManager.bspwm.enable = true;
-  services.xserver.displayManager = { 
-    defaultSession = "none+bspwm"; 
-    setupCommands = ''
-    my_laptop_external_monitor=$(${pkgs.xorg.xrandr}/bin/xrandr --query | grep 'DP-3 connected')
-    if [[ $my_laptop_external_monitor = *connected* ]]; then
-      ${pkgs.xorg.xrandr}/bin/xrandr --output DP-3 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off
-    else
-      ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200 --rate 60
-    fi
-    '';
-    lightdm = { 
-      enable = true; 
-      greeter.enable = true; 
-    }; 
-  };
-
+ 
+  #zsh
+  programs.zsh.enable = true;
+  nixpkgs.config.allowUnfree = true;
   # Configure keymap in X11
-  services.xserver = {
-    layout = "de";
-    xkbVariant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "de";
-
+   services.xserver.layout = "us";
+  # services.xserver.xkbOptions = "eurosign:e";
+  # Picom Fork
+  
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  # Enable sound.
+   sound.enable = true;
+   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+   services.xserver.libinput.enable = true;
+   
+     # Fonts
+  fonts.fonts = with pkgs; [
+  (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
+];
+ 
+ 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.saracen = {
@@ -104,95 +96,62 @@
     packages = with pkgs; [];
   };
 
-  # Enable automatic login for the user.
-  # services.xserver.displayManager.autoLogin.enable = true;
-  # services.xserver.displayManager.autoLogin.user = "saracen";
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = (with pkgs; [
-    cargo
-    ripgrep
-    xorg.xbacklight
-    git
-    curl
-    wget
-    htop
-    zsh
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    neofetch
-    #brave # no arm
-    #discord # no arm
-    #zoom-us # no arm
-    #plexamp # no arm
-    plex-media-player
-    python311
-    vscode
-    github-desktop
-    firefox
-    gparted
-    krusader
-    nextcloud-client
-    firefox
-    vlc
-    resilio-sync
-    nodejs
-    go
-    gcc
-    jre8
-    libvirt
-    tree
-    timeshift
-    sshpass
-    cmatrix
-    geckodriver
-    terminator
-    unzip
-    papirus-icon-theme
-  ]) ++ (with pkgs.python310Packages; [
-    pyyaml
-    pick
-    beautifulsoup4
-    icecream
-    selenium
-    pyautogui
-    pygame
-  ]) ++ (with pkgs.nodePackages; [
-    npm
-    typescript
-    sass
-  ]);
-
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-clocks
-    gnome-font-viewer
-    gnome-contacts
-    gnome-calculator
-    gnome-calendar
-    gnome-maps
-    gnome-music
-    gnome-terminal
-    gnome-weather
-    gedit # text editor
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    yelp
-]);
+      environment.systemPackages = with pkgs; [
+     neovim
+     wget
+     firefox
+     pfetch
+     git
+     feh
+     sxiv
+     #picom
+     nur.repos.reedrw.picom-next-ibhagwan
+     bspwm
+     sxhkd
+     alacritty
+     zsh
+     polybar
+     rofi
+     pipes
+     ranger
+     discord
+     pavucontrol
+     maim
+     killall
+     audacity
+     google-chrome
+     mumble
+     xclip
+     obs-studio
+     ffmpeg
+     mpv
+     gimp
+     gnome-breeze
+     lxappearance
+     kdenlive
+     youtube-dl
+     vscode
+     unzip
+   ];
+   
+      # Auto upgr
+      # ades
+  system.autoUpgrade.enable = true;
+#  system.autoUpgrade.allowReboot = true;
+ 
+ 
+   nix = {
+    # Hard link identical files in the store automatically
+    autoOptimiseStore = true;
+    # automatically trigger garbage collection
+    gc.automatic = true;
+    gc.dates = "weekly";
+    gc.options = "--delete-older-than 30d";
+  };
+ 
+ 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -205,7 +164,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+   services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

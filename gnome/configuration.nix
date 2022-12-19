@@ -110,6 +110,7 @@
     neofetch
     docker
     docker-compose
+    ffmpeg
     #brave # no arm
     #discord # no arm
     #zoom-us # no arm
@@ -188,6 +189,19 @@
     yelp
 ]);
 
+  system.autoUpgrade.enable = true;
+#  system.autoUpgrade.allowReboot = true;
+ 
+ 
+   nix = {
+    # Hard link identical files in the store automatically
+    autoOptimiseStore = true;
+    # automatically trigger garbage collection
+    gc.automatic = true;
+    gc.dates = "weekly";
+    gc.options = "--delete-older-than 30d";
+  };
+ 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
