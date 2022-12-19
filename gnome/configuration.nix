@@ -56,7 +56,10 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "de";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -100,6 +103,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+    grub2
     git
     curl
     wget
@@ -139,6 +143,7 @@
     terminator
     unzip
     papirus-icon-theme
+    terminus_font
   ]) ++ (with pkgs.gnome; [
     #gnome-shell
     gnome-shell-extensions
