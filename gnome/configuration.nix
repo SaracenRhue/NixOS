@@ -108,6 +108,8 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
     neofetch
+    docker
+    docker-compose
     #brave # no arm
     #discord # no arm
     #zoom-us # no arm
