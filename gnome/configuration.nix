@@ -84,7 +84,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.saracen = {
     isNormalUser = true;
-    description = "saracen";
+    shell = pkgs.zsh;
+    description = "Saracen Rhue";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
