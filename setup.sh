@@ -59,6 +59,7 @@ unzip -d ./ ./nixos/configs/mozilla.zip
 # grub theme
 echo $password | sudo -S sudo git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git && cd darkmatter-grub-theme
 echo $password | sudo -S sudo python darkmatter-theme.py --install
+cd ../
 
 # aliases
 # zsh
