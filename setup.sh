@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## bash ./nixos/setup.sh password
+## bash ./nixos/gnome/setup.sh password
 
 password=$1 
 
@@ -33,7 +33,7 @@ unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 # gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
 gsettings set org.gnome.mutter center-new-windows 'true'
-gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
 # extensions
 gnome-extensions enable material-shell@papyelgringo #enable material shell
