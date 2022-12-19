@@ -203,6 +203,11 @@
     gc.automatic = true;
     gc.dates = "weekly";
     gc.options = "--delete-older-than 30d";
+    # enable experimental features (needed for flakes)
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+    experimental-features = nix-command flakes
+    '';
   };
  
   # Some programs need SUID wrappers, can be configured further or are
