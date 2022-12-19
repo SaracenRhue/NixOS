@@ -45,9 +45,23 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.bspwm.enable = true;
+  # Enable the BSPWM Desktop Environment.
+  services.xserver.windowManager.bspwm.enable = true;
+  services.xserver.displayManager = { 
+    defaultSession = "none+bspwm"; 
+    setupCommands = ''
+    my_laptop_external_monitor=$(${pkgs.xorg.xrandr}/bin/xrandr --query | grep 'DP-3 connected')
+    if [[ $my_laptop_external_monitor = *connected* ]]; then
+      ${pkgs.xorg.xrandr}/bin/xrandr --output DP-3 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off
+    else
+      ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200 --rate 60
+    fi
+    '';
+    lightdm = { 
+      enable = true; 
+      greeter.enable = true; 
+    }; 
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -100,6 +114,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+    cargo
+    ripgrep
+    xorg.xbacklight
     git
     curl
     wget
