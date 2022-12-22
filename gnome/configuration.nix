@@ -115,6 +115,7 @@
     docker
     docker-compose
     ffmpeg
+    #quickemu # no arm
     #brave # no arm
     #discord # no arm
     #zoom-us # no arm
@@ -148,7 +149,7 @@
     #gnome-shell
     gnome-shell-extensions
     gnome-tweaks
-    gnome-boxes
+    #gnome-boxes
   ]) ++ (with pkgs.gnomeExtensions; [
     material-shell
     user-themes
