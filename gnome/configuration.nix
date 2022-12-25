@@ -134,9 +134,9 @@
     go
     gcc
     jre8
-    libvirt
+    #libvirt
     tree
-    timeshift
+    #timeshift # not working
     sshpass
     cmatrix
     geckodriver
