@@ -130,7 +130,6 @@
     nextcloud-client
     firefox
     vlc
-    resilio-sync
     nodejs
     go
     gcc
@@ -149,7 +148,7 @@
     #gnome-shell
     gnome-shell-extensions
     gnome-tweaks
-    #gnome-boxes
+    gnome-boxes
   ]) ++ (with pkgs.gnomeExtensions; [
     material-shell
     user-themes
