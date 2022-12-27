@@ -85,10 +85,7 @@ echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.bashrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.bashrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.bashrc
 
-# rm -fr ./nixos
-
-# 
-
+rm -fr ./nixos
 
 echo $password | sudo -S sudo nix-collect-garbage -d
 echo $password | sudo -S sudo nixos-rebuild switch
