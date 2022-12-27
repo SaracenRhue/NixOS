@@ -36,11 +36,10 @@ gsettings set org.gnome.mutter center-new-windows 'true'
 gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
 # extensions
-gnome-shell-extension-tool -e material-shell@papyelgringo #enable material shell
-gnome-shell-extension-tool -e user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
-gnome-shell-extension-tool -e Move_Clock@rmy.pobox.com #enable move clock
-gnome-shell-extension-tool -e custom-accent-color@demiskp #enable custom accent color
-
+gnome-extensions enable material-shell@papyelgringo #enable material shell
+gnome-extensions enable user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
+gnome-extensions enable Move_Clock@rmy.pobox.com #enable move clock
+gnome-extensions enable custom-accent-color@demiskp #enable custom accent color
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
@@ -58,12 +57,13 @@ rm -fr .mozilla
 unzip -d ./ ./nixos/configs/mozilla.zip
 
 # grub theme
-# echo $password | sudo -S sudo git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git && cd darkmatter-grub-theme
+# echo $password | sudo -S sudo git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git
+# cd darkmatter-grub-theme
 # echo $password | sudo -S sudo python darkmatter-theme.py --install
-# cd ../
+# cd
+# rm -fr ./darkmatter-grub-theme
 
 # aliases
-# zsh
 echo "Adding aliases ..."
 echo "alias 'nix-i'='nix-env -iA nixos'" >> ~/.zshrc
 echo "alias 'nix-u'='nix-channel --update && nix-env -u'" >> ~/.zshrc
@@ -74,16 +74,6 @@ echo "alias 'gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild swit
 echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.zshrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.zshrc
-# bash
-echo "alias 'nix-i'='nix-env -iA nixos'" >> ~/.bashrc
-echo "alias 'nix-u'='nix-channel --update && nix-env -u'" >> ~/.bashrc
-echo "alias 'nix-q'='nix-env -q'" >> ~/.bashrc
-echo "alias 'nix-s'='nix search'" >> ~/.bashrc
-echo "alias 'rebuild'='nixos-rebuild switch'" >> ~/.bashrc
-echo "alias 'gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild switch'" >> ~/.bashrc
-echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.bashrc
-echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.bashrc
-echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.bashrc
 
 rm -fr ./nixos
 
