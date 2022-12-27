@@ -36,9 +36,10 @@ gsettings set org.gnome.mutter center-new-windows 'true'
 gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
 # extensions
-gnome-extensions enable material-shell@papyelgringo #enable material shell
-gnome-extensions enable user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
-gnome-extensions enable Move_Clock@rmy.pobox.com #enable move clock
+gnome-shell-extension-tool -e material-shell@papyelgringo #enable material shell
+gnome-shell-extension-tool -e user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
+gnome-shell-extension-tool -e Move_Clock@rmy.pobox.com #enable move clock
+gnome-shell-extension-tool -e custom-accent-color@demiskp #enable custom accent color
 
 
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
@@ -84,13 +85,9 @@ echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.bashrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.bashrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.bashrc
 
-rm -fr ./nixos
+# rm -fr ./nixos
 
-# git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes 
-# cd Top-5-Bootloader-Themes
-# sudo -S sudo bash ./install.sh
-# cd ../
-# echo $password | sudo -S sudo rm -fr Top-5-Bootloader-Themes
+# 
 
 
 echo $password | sudo -S sudo nix-collect-garbage -d
