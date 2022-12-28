@@ -74,6 +74,7 @@ echo "alias 'gc'='sudo -S sudo nix-collect-garbage -d && sudo nixos-rebuild swit
 echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.zshrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.zshrc
+echo "alias 'dl'='wget -c --retry-connrefused --tries=0 --timeout=5'" >> ~/.zshrc
 
 rm -fr ./nixos
 
