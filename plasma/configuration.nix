@@ -45,8 +45,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
+  # Enable the Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
@@ -57,7 +56,10 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "de";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -85,18 +87,15 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.saracen = {
     isNormalUser = true;
-    description = "saracen";
+    shell = pkgs.zsh;
+    description = "Saracen Rhue";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      kate
-    #  thunderbird
-    ];
+    packages = with pkgs; [];
   };
 
   # Enable automatic login for the user.
-  #services.xserver.displayManager.autoLogin.enable = true;
-  #services.xserver.displayManager.autoLogin.user = "saracen";
+  # services.xserver.displayManager.autoLogin.enable = true;
+  # services.xserver.displayManager.autoLogin.user = "saracen";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -104,6 +103,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+    grub2
     git
     curl
     wget
@@ -112,6 +112,10 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
     neofetch
+    docker
+    docker-compose
+    ffmpeg
+    #quickemu # no arm
     #brave # no arm
     #discord # no arm
     #zoom-us # no arm
@@ -126,26 +130,29 @@
     nextcloud-client
     firefox
     vlc
-    resilio-sync
     nodejs
     go
     gcc
     jre8
-    libvirt
+    #libvirt
     tree
-    timeshift
+    #timeshift # not working
     sshpass
     cmatrix
     geckodriver
     terminator
     unzip
     papirus-icon-theme
+    terminus_font
+  ]) ++ (with pkgs.gnome; [
+    gnome-boxes
   ]) ++ (with pkgs.python310Packages; [
     pyyaml
     pick
     beautifulsoup4
     icecream
     selenium
+    numpy
     pyautogui
     pygame
   ]) ++ (with pkgs.nodePackages; [
@@ -154,8 +161,29 @@
     sass
   ]);
 
-  environment.gnome.excludePackages = (with pkgs; []);
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    
+  ]);
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+ 
+ 
+  nix = {
+    # automatically trigger garbage collection
+    gc.automatic = true;
+    gc.dates = "weekly";
+    gc.options = "--delete-older-than 30d";
+    # enable experimental features (needed for flakes)
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+    experimental-features = nix-command flakes
+    '';
+  };
+ 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
