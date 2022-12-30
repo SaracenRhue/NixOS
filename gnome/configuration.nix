@@ -196,10 +196,10 @@
 ]);
 
   system.autoUpgrade.enable = true;
-#  system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade.allowReboot = true;
  
  
-   nix = {
+  nix = {
     # automatically trigger garbage collection
     gc.automatic = true;
     gc.dates = "weekly";
