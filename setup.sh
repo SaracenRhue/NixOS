@@ -44,6 +44,8 @@ echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.zshrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.zshrc
 echo "alias 'dl'='wget -c --retry-connrefused --tries=0 --timeout=5'" >> ~/.zshrc
+echo "alias 'ip'='curl ipinfo.io'" >> ~/.zshrc
+echo "alias 'git:'='git clone https://github.com/'" >> ~/.zshrc
 
 # grub theme
 # echo $password | sudo -S sudo git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git
