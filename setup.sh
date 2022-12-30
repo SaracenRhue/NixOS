@@ -5,8 +5,6 @@
 password=$1 
 
 touch ~/.bashrc
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
-
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
 echo $password | sudo -S sudo cp ./nixos/gnome/configuration.nix /etc/nixos/
 
@@ -27,20 +25,6 @@ unzip -d ~/.icons/ ./nixos/icons/capitaine-cursors.zip
 unzip -d ~/.icons/ ./nixos/icons/BigSur.zip
 unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 
-# settings
-# gsettings set org.gnome.desktop.interface icon-theme 'BigSur-dark'
-# gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
-# gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
-gsettings set org.gnome.mutter center-new-windows 'true'
-gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
-gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
-# extensions
-gnome-extensions enable material-shell@papyelgringo #enable material shell
-gnome-extensions enable user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
-gnome-extensions enable Move_Clock@rmy.pobox.com #enable move clock
-gnome-extensions enable custom-accent-color@demiskp #enable custom accent color
-
 echo "plugins=(zsh-autosuggestions)" >> ~/.zshrc
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
 echo "ZSH_THEME='powerlevel10k/powerlevel10k'" >> ~/.zshrc
@@ -50,18 +34,6 @@ echo "neofetch" >> ~/.zshrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.zshrc
 echo "neofetch" >> ~/.bashrc
 echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.bashrc
-
-# place config files
-echo "Adding firefox files ..."
-rm -fr .mozilla
-unzip -d ./ ./nixos/configs/mozilla.zip
-
-# grub theme
-# echo $password | sudo -S sudo git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git
-# cd darkmatter-grub-theme
-# echo $password | sudo -S sudo python darkmatter-theme.py --install
-# cd
-# rm -fr ./darkmatter-grub-theme
 
 # aliases
 echo "Adding aliases ..."
@@ -75,6 +47,38 @@ echo "alias 'config'='sudo nano /etc/nixos/configration.nix'" >> ~/.zshrc
 echo "alias 'zshrc'='nano ~/.zshrc'" >> ~/.zshrc
 echo "alias 'bashrc'='nano ~/.bashrc'" >> ~/.zshrc
 echo "alias 'dl'='wget -c --retry-connrefused --tries=0 --timeout=5'" >> ~/.zshrc
+
+# grub theme
+# echo $password | sudo -S sudo git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git
+# cd darkmatter-grub-theme
+# echo $password | sudo -S sudo python darkmatter-theme.py --install
+# cd
+# rm -fr ./darkmatter-grub-theme
+
+
+############### gnome specific ###############
+
+# place config files
+echo "Adding firefox files ..."
+rm -fr .mozilla
+unzip -d ./ ./nixos/gnome/mozilla.zip
+
+# settings
+# gsettings set org.gnome.desktop.interface icon-theme 'BigSur-dark'
+# gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
+# gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' #set dark theme
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark' #set icon theme
+gsettings set org.gnome.mutter center-new-windows 'true'
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'
+# extensions
+gnome-extensions enable material-shell@papyelgringo #enable material shell
+gnome-extensions enable user-theme@gnome-shell-extensions.gcmpax.github.com #enable user theme
+gnome-extensions enable Move_Clock@rmy.pobox.com #enable move clock
+gnome-extensions enable custom-accent-color@demiskp #enable custom accent color
+
+##############################################
 
 rm -fr ./nixos
 
