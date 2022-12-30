@@ -159,6 +159,7 @@
     beautifulsoup4
     icecream
     selenium
+    numpy
     pyautogui
     pygame
   ]) ++ (with pkgs.nodePackages; [
