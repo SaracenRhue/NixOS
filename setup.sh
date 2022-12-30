@@ -57,7 +57,7 @@ echo "alias 'dl'='wget -c --retry-connrefused --tries=0 --timeout=5'" >> ~/.zshr
 
 
 ############### gnome specific ###############
-bash ./nixos/gnome/gnome.sh
+bash ./nixos/gnome.sh
 ##############################################
 
 rm -fr ./nixos
