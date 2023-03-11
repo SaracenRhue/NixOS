@@ -86,7 +86,6 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.saracen = {
-    password = "password";
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Saracen Rhue";
