@@ -128,6 +128,7 @@
     gparted
     krusader
     nextcloud-client
+    tailscale
     firefox
     vlc
     nodejs
