@@ -53,6 +53,9 @@
   networking.firewall.checkReversePath = "loose";
   services.tailscale.enable = true;
 
+ # enable docker 
+ virtualisation.docker.enable = true;
+
   # Configure keymap in X11
   services.xserver = {
     layout = "de";
@@ -93,7 +96,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Saracen Rhue";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
   };
 
