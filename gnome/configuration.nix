@@ -170,6 +170,7 @@
     numpy
     pyautogui
     pygame
+    pymysql
     torch
   ]) ++ (with pkgs.nodePackages; [
     npm
