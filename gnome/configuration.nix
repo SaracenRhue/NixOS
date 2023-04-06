@@ -170,6 +170,7 @@
     numpy
     pyautogui
     pygame
+    torch
   ]) ++ (with pkgs.nodePackages; [
     npm
     typescript
