@@ -12,7 +12,7 @@ echo $password | sudo -S sudo cp ./nixos/gnome/configuration.nix /etc/nixos/
 export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
 nix-env -u
-
+nix-channel --add https://channels.nixos.org/nixos-23.05 nixos
 echo $password | sudo nixos-rebuild switch --upgrade
 echo $password | sudo -S sudo cp ./nixos/.zshrc ./
 source ~/.bashrc
