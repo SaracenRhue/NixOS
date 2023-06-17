@@ -204,11 +204,7 @@
     atomix # puzzle game
     yelp
 ]);
-
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
- 
- 
+  
   nix = {
     # automatically trigger garbage collection
     gc.automatic = true;
