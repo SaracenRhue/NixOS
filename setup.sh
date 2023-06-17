@@ -13,7 +13,7 @@ export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
 nix-env -u
 
-echo $password | sudo nixos-rebuild switch
+echo $password | sudo nixos-rebuild switch --upgrade
 echo $password | sudo -S sudo cp ./nixos/.zshrc ./
 source ~/.bashrc
 
@@ -38,11 +38,11 @@ bash ./nixos/gnome.sh
 rm -fr ./nixos
 
 echo $password | sudo -S sudo nix-collect-garbage -d
-echo $password | sudo -S sudo nixos-rebuild switch --upgrade
+echo $password | sudo -S sudo nixos-rebuild switch
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
-echo "                   "
+echo "                  "
 echo "Start tailscale using sudo tailscale up" && sleep 1
 echo "Rebooting in 5 seconds" && sleep 1
 echo "Rebooting in 4 seconds" && sleep 1
