@@ -92,7 +92,8 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
-
+  # enable the tailscale service
+    services.tailscale.enable = true;
   # Enable automatic login for the user.
   # services.xserver.displayManager.autoLogin.enable = true;
   # services.xserver.displayManager.autoLogin.user = "saracen";
@@ -103,6 +104,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+    tailscale
     grub2
     git
     curl
