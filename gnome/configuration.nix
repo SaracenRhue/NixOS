@@ -96,7 +96,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Saracen Rhue";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
   };
 
@@ -110,7 +110,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
-    libverto
+    #libverto
     tailscale
     grub2
     git
@@ -206,7 +206,7 @@
     yelp
 ]);
 
-virtualisation.libvirtd.enable = true;
+#virtualisation.libvirtd.enable = true;
   
   nix = {
     # automatically trigger garbage collection
