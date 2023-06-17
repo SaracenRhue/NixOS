@@ -110,6 +110,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+    tailscale
     grub2
     git
     curl
@@ -135,7 +136,6 @@
     gparted
     krusader
     nextcloud-client
-    tailscale
     firefox
     vlc
     nodejs
