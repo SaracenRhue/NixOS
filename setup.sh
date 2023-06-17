@@ -38,7 +38,7 @@ bash ./nixos/gnome.sh
 rm -fr ./nixos
 
 echo $password | sudo -S sudo nix-collect-garbage -d
-echo $password | sudo -S sudo nixos-rebuild switch
+echo $password | sudo -S sudo nixos-rebuild switch --upgrade
 echo "  __  __      ___ "
 echo " /  )/  )/| )(_   "
 echo "/(_/(__// |/ /__  "
