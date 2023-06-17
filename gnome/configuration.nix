@@ -233,7 +233,10 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
+  system.copySystemConfiguration = true;
+  system.autoUpgrade.enable = true;  
+  system.autoUpgrade.allowReboot = true; 
+  system.autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
