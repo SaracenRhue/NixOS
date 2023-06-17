@@ -10,6 +10,7 @@ echo $password | sudo -S sudo cp ./nixos/gnome/configuration.nix /etc/nixos/
 
 
 export NIXPKGS_ALLOW_UNFREE=1
+nix-channel --add https://channels.nixos.org/nixos-23.05 nixos
 nix-channel --update
 nix-env -u
 
