@@ -111,6 +111,7 @@
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
     #libverto
+    distrobox
     tailscale
     grub2
     git
