@@ -19,11 +19,11 @@ source ~/.bashrc
 mkdir ~/.themes
 mkdir ~/.icons
 mkdir ~/.backgrounds
-mv ./nixos/wallpapers/* ~/.backgrounds/
-unzip -d ~/.themes/ ./nixos/themes/WhiteSur-dark.zip
-unzip -d ~/.icons/ ./nixos/icons/capitaine-cursors.zip
-unzip -d ~/.icons/ ./nixos/icons/BigSur.zip
-unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
+# mv ./nixos/wallpapers/* ~/.backgrounds/
+# unzip -d ~/.themes/ ./nixos/themes/WhiteSur-dark.zip
+# unzip -d ~/.icons/ ./nixos/icons/capitaine-cursors.zip
+# unzip -d ~/.icons/ ./nixos/icons/BigSur.zip
+# unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 
 
 echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
