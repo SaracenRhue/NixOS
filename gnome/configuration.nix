@@ -8,12 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./unstable.nix
     ];
 
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -99,17 +101,24 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
   };
-
+  programs.zsh.enable = true;
   # Enable automatic login for the user.
   # services.xserver.displayManager.autoLogin.enable = true;
   # services.xserver.displayManager.autoLogin.user = "saracen";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+#  nixpkgs.config.permittedInsecurePackages = [
+#     "openssl-1.1.1v"
+#    ]; 
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+    thunderbird
+    vim
     #libverto
     distrobox
     tailscale
@@ -125,14 +134,13 @@
     docker
     docker-compose
     ffmpeg
-    #quickemu # no arm
-    #brave # no arm
-    #discord # no arm
+    quickemu # no arm
+    brave # no arm
+    discord # no arm
     #zoom-us # no arm
     #plexamp # no arm
     plex-media-player
     python311
-    vscode
     github-desktop
     firefox
     gparted
@@ -174,6 +182,7 @@
     pygame
     pymysql
     torch
+    flask
   ]) ++ (with pkgs.nodePackages; [
     npm
     typescript
@@ -208,7 +217,8 @@
 ]);
 
 #virtualisation.libvirtd.enable = true;
-  
+ 
+ 
   nix = {
     # automatically trigger garbage collection
     gc.automatic = true;
@@ -232,7 +242,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
   system.copySystemConfiguration = true;
   system.autoUpgrade.enable = true;  
   system.autoUpgrade.allowReboot = true; 

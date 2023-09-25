@@ -7,7 +7,8 @@ password=$1
 touch ~/.bashrc
 echo $password | sudo -S sudo rm -fr /etc/nixos/configuration.nix
 echo $password | sudo -S sudo cp ./nixos/gnome/configuration.nix /etc/nixos/
-
+echo $password | sudo -S sudo cp ./nixos/gnome/unstable.nix /etc/nixos/
+echo $password | sudo -S sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
 
 export NIXPKGS_ALLOW_UNFREE=1
 nix-channel --update
