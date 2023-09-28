@@ -27,8 +27,8 @@ mkdir ~/.backgrounds
 # unzip -d ~/.icons/ ./nixos/icons/BigSur-dark.zip
 
 
-echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
-curl -L http://install.ohmyz.sh | sh
+# echo $password | sudo -S sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/icons/powerlevel10k
+# curl -L http://install.ohmyz.sh | sh
 
 
 ############### gnome specific ###############

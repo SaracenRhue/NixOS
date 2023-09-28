@@ -26,6 +26,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "9.9.9.9" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
@@ -38,9 +39,8 @@
     LC_IDENTIFICATION = "de_DE.UTF-8";
     LC_MEASUREMENT = "de_DE.UTF-8";
     LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
+    LC_NAME =services.gnome.core-utilities.enable = false;
+= "de_DE.UTF-8";
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
@@ -50,13 +50,18 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
+  # Don't install gnome apps / only the desktop
+  services.gnome.core-utilities.enable = false;
+  # Disable tracking services
+  services.gnome.tracker.enable = false;
+
+
   # Enable Tailscale
   networking.firewall.checkReversePath = "loose";
   services.tailscale.enable = true;
 
- # enable docker 
- virtualisation.docker.enable = true;
+  # enable docker 
+  virtualisation.docker.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -101,7 +106,17 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
   };
-  programs.zsh.enable = true;
+    programs.zsh.enable = true;
+    programs.zsh.ohMyZsh = {
+    enable = true;
+    plugins = [ "git" "python" "man" ];
+    theme = "robbyrussell";
+  };
+  programs.zsh.ohMyZsh.customPkgs = [
+    pkgs.zsh-autosuggestions
+    pkgs.zsh-syntax-highlighting
+  ];
+
   # Enable automatic login for the user.
   # services.xserver.displayManager.autoLogin.enable = true;
   # services.xserver.displayManager.autoLogin.user = "saracen";
@@ -117,9 +132,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
+    gnome-console
+    streamlit
     thunderbird
     vim
-    #libverto
+    qemu
+    libverto
+    libvirt
+    virt-manager
     distrobox
     tailscale
     grub2
@@ -130,13 +150,14 @@
     zsh
     zsh-autosuggestions
     zsh-syntax-highlighting
+    oh-my-zsh
     neofetch
     docker
     docker-compose
     ffmpeg
-    quickemu # no arm
-    brave # no arm
-    discord # no arm
+    #quickemu # no arm
+    #brave # no arm
+    #discord # no arm
     #zoom-us # no arm
     #plexamp # no arm
     plex-media-player
@@ -152,10 +173,8 @@
     go
     gcc
     jre8
-    #libvirt
     tree
     #timeshift # not working
-    sshpass
     cmatrix
     geckodriver
     terminator
@@ -164,9 +183,9 @@
     terminus_font
   ]) ++ (with pkgs.gnome; [
     #gnome-shell
+    nautilus
     gnome-shell-extensions
     gnome-tweaks
-    gnome-boxes
   ]) ++ (with pkgs.gnomeExtensions; [
     material-shell
     user-themes
@@ -189,34 +208,8 @@
     sass
   ]);
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-clocks
-    gnome-font-viewer
-    gnome-contacts
-    gnome-calculator
-    gnome-calendar
-    gnome-maps
-    gnome-music
-    gnome-terminal
-    gnome-weather
-    gedit # text editor
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    yelp
-]);
 
-#virtualisation.libvirtd.enable = true;
+ virtualisation.libvirtd.enable = true;
  
  
   nix = {
